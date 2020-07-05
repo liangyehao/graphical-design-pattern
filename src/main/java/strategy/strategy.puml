@@ -1,0 +1,35 @@
+@startuml
+
+class Context{
+    Strategy strategy;
+    Strategy2 strategy2;
+}
+note top of Context: Context有成员变量Strategy或者其他策略接口,\n至于需要使用到哪个策略,可以在构造方法中指定
+
+interface Strategy{
+    void m1();
+    void m2();
+}
+
+class ConcreteStrategyA
+class ConcreteStrategyB
+
+interface Strategy2{
+    void m3();
+    void m4();
+}
+
+class ConcreteStrategyC
+class ConcreteStrategyD
+
+
+Strategy <|-- ConcreteStrategyA
+Strategy <|-- ConcreteStrategyB
+
+Strategy2 <|-- ConcreteStrategyC
+Strategy2 <|-- ConcreteStrategyD
+
+Context o--r-- Strategy2
+Context o--r-- Strategy
+
+@enduml

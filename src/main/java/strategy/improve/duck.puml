@@ -1,0 +1,43 @@
+@startuml
+
+abstract class AbstractDuck{
+    FlyBehavior flyBehavior;
+    QuackBehavior quackBehavior;
+}
+
+class WildDuck
+class PekingDuck
+class ToyDuck
+
+AbstractDuck <|-- WildDuck
+AbstractDuck <|-- PekingDuck
+AbstractDuck <|-- ToyDuck
+
+interface FlyBehavior{
+    void fly();
+}
+
+class GoodFlyBehavior
+class BadFlyBehavior
+class NoFlyBehavior
+
+FlyBehavior <|-- GoodFlyBehavior
+FlyBehavior <|-- BadFlyBehavior
+FlyBehavior <|-- NoFlyBehavior
+
+interface QuackBehavior{
+   void quack();
+}
+
+class GegeQuackBehavior
+class GagaQuackBehavior
+class NoQuackBehavior
+
+QuackBehavior <|-- GegeQuackBehavior
+QuackBehavior <|-- GagaQuackBehavior
+QuackBehavior <|-- NoQuackBehavior
+
+AbstractDuck o--d-- QuackBehavior
+AbstractDuck o--r-- FlyBehavior
+
+@enduml
